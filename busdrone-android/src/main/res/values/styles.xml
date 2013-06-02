@@ -1,0 +1,11 @@
+<resources>
+    <style name="BusdroneTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/BusdroneActionBar</item>
+        <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
+    </style>
+
+    <style name="BusdroneActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title.Inverse</item>
+        <item name="android:background">#27A9E1</item>
+    </style>
+</resources>
