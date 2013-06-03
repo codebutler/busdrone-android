@@ -175,7 +175,7 @@ public class MainActivity extends BusdroneActivity {
         Log.d(TAG, "onVehicles: " + event.getVehicles());
 
         mMap.clear();
-        for (Vehicle vehicle : ImmutableList.copyOf(event.getVehicles().values())) {
+        for (Vehicle vehicle : event.getVehicles().values()) {
             addOrUpdateMarker(vehicle);
         }
     }

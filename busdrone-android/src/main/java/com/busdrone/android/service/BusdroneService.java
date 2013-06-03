@@ -30,6 +30,7 @@ import com.busdrone.android.event.VehiclesEvent;
 import com.busdrone.android.model.Event;
 import com.busdrone.android.model.Vehicle;
 import com.codebutler.android_websockets.WebSocketClient;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.squareup.otto.Bus;
@@ -112,7 +113,7 @@ public class BusdroneService extends Service implements WebSocketClient.Listener
                     mVehicles.put(vehicle.uid, vehicle);
                 }
             }
-            mBus.post(new VehiclesEvent(mVehicles));
+            mBus.post(produceVehiclesEvent());
         } else if (event.getType().equals(Event.TYPE_UPDATE_VEHICLE)) {
             Vehicle vehicle = event.getVehicle();
             synchronized (mVehicles) {
@@ -139,6 +140,6 @@ public class BusdroneService extends Service implements WebSocketClient.Listener
 
     @Produce
     public VehiclesEvent produceVehiclesEvent() {
-        return new VehiclesEvent(mVehicles);
+        return new VehiclesEvent(ImmutableMap.copyOf(mVehicles));
     }
 }
